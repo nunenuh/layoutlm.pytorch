@@ -21,6 +21,8 @@ base_label_name = {
     'sign_date': 'SGD'
 }
 
+label_to_name = dict((v,k) for k,v in base_label_name.items())
+
 base_label_type = {
     'field': "FLD",
     'value': "VAL",
@@ -42,4 +44,5 @@ def labels_map_process(label_name, label_type):
 label_map = labels_map_process(base_label_name, base_label_type)
 label_to_idx = dict((label,idx) for idx, label in enumerate(label_map))
 idx_to_label = dict((idx, label) for idx, label in enumerate(label_map))
+idx_to_label["-100"] = "Unknown" 
 num_labels = len(label_map)
